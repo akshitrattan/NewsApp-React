@@ -36,7 +36,6 @@ export default class News extends Component {
     }
 
     async componentDidMount() {
-        console.log('cdm')
         let url = "https://newsdata.io/api/1/news?apikey=pub_76911041b0c243d638990dd91628e6660bf1&language=en";
         let data = await fetch(url);
         let parsedData = await data.json();
@@ -45,7 +44,6 @@ export default class News extends Component {
     }
 
     render() {
-        console.log('render');
         return (
             <div className='container my-5'>
                 <div className="container">
