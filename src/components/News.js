@@ -70,7 +70,7 @@ export default class News extends Component {
                     <div className="row justify-content-center">
                         {!this.state.loading && this.state.articles.map((element)=> {
                             return <div className="col-md-4 row justify-content-center" key={element.link}>
-                            <NewsItem title={element.title ? element.title.slice(0,45): ""} description={element.description ? element.description.slice(0, 88): ""} imageURL={element.image_url ? element.urlToImage: "https://cdn.dribbble.com/users/975543/screenshots/4623054/1_d.png"} newsURL={element.url} source={element.source.name}/>
+                            <NewsItem title={element.title ? element.title.slice(0,45): ""} description={element.description ? element.description.slice(0, 88): ""} imageURL={element.urlToImage ? element.urlToImage: "https://cdn.dribbble.com/users/975543/screenshots/4623054/1_d.png"} newsURL={element.url} source={element.source.name}/>
                         </div>
                         })}
                     </div>`
