@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import Loading from './Loading';
 import NewsItem from './NewsItem';
+import PropTypes from 'prop-types';
+
 
 export default class News extends Component {
+
+    static propTypes = {
+        country: PropTypes.string,
+        category: PropTypes.string,
+    }
+
     constructor() {
         super();
         this.state = {
@@ -17,7 +25,7 @@ export default class News extends Component {
     onPrevClick = async () => {
         let currentPage = this.state.page;
         let prevPage = this.state.page - 1;
-        let url = `https://newsdata.io/api/1/news?apikey=pub_76911041b0c243d638990dd91628e6660bf1&language=en&page=${prevPage}`;
+        let url = `https://newsdata.io/api/1/news?apikey=pub_777993f09d0c630e7acc79b36007f70fd632&language=en&page=${prevPage}&category=${this.props.category}`;
         this.setState({loading: true});
         let data = await fetch(url);
         let parsedData = await data.json();
@@ -30,7 +38,7 @@ export default class News extends Component {
     onNextClick = async () => {
         let currentPage = this.state.page;
         let nextPage = this.state.page + 1;
-        let url = `https://newsdata.io/api/1/news?apikey=pub_76911041b0c243d638990dd91628e6660bf1&language=en&page=${nextPage}`;
+        let url = `https://newsdata.io/api/1/news?apikey=pub_777993f09d0c630e7acc79b36007f70fd632&language=en&page=${nextPage}&category=${this.props.category}`;
         this.setState({loading: true});
         let data = await fetch(url);
         let parsedData = await data.json();
@@ -41,7 +49,7 @@ export default class News extends Component {
     }
 
     async componentDidMount() {
-        let url = "https://newsdata.io/api/1/news?apikey=pub_76911041b0c243d638990dd91628e6660bf1&language=en";
+        let url = `https://newsdata.io/api/1/news?apikey=pub_777993f09d0c630e7acc79b36007f70fd632&language=en&category=${this.props.category}`;
         this.setState({loading: true});
         let data = await fetch(url);
         let parsedData = await data.json();
@@ -55,13 +63,13 @@ export default class News extends Component {
             <>
                 <div className='container my-5'>
                     <div className="container">
-                    <h1>Top Headlines</h1>
+                    <h1 className='text-center'>Top Headlines</h1>
                     <div className="container justify-content-center">
                         {this.state.loading && <Loading/>}
                     </div>
-                    <div className="row">
+                    <div className="row justify-content-center">
                         {!this.state.loading && this.state.articles.map((element)=> {
-                            return <div className="col-md-4" key={element.link}>
+                            return <div className="col-md-4 row justify-content-center" key={element.link}>
                             <NewsItem title={element.title ? element.title.slice(0,45): ""} description={element.description ? element.description.slice(0, 88): ""} imageURL={element.image_url ? element.image_url: "https://cdn.dribbble.com/users/975543/screenshots/4623054/1_d.png"} newsURL={element.link}/>
                         </div>
                         })}

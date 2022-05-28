@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class NavBar extends Component {
   render() {
@@ -12,31 +13,28 @@ export default class NavBar extends Component {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     <li className="nav-item">
-                        <a className="nav-link" aria-current="page" href="#">Home</a>
+                        <Link className="nav-link" to="/Business">Business</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Business</a>
+                        <Link className="nav-link" to="/Entertainment">Entertainment</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Entertainment</a>
+                        <Link className="nav-link" to="/Food">Food</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Food</a>
+                        <Link className="nav-link" to="/Health">Health</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Health</a>
+                        <Link className="nav-link" to="/Politics">Politics</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Politics</a>
+                        <Link className="nav-link" to="/Science">Science</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Science</a>
+                        <Link className="nav-link" to="/Sports">Sports</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Sports</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">Technology</a>
+                        <Link className="nav-link" to="/Technology">Technology</Link>
                     </li>
                     </ul>
                     <form className="d-flex" role="search">
