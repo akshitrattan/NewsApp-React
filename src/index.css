@@ -25,3 +25,20 @@ code {
   color: white;
   font-size: 18px;
 }
+
+.badge {
+  background-color: rgb(116, 49, 179);
+}
+
+.page-link {
+  color: rgb(116, 49, 179);
+}
+
+.btn-primary {
+  background-color: rgb(116, 49, 179);
+  border-color: rgb(116, 49, 179);
+}
+
+.btn-primary hover {
+
+}
