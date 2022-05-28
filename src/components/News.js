@@ -25,7 +25,13 @@ export default class News extends Component {
     onPrevClick = async () => {
         let currentPage = this.state.page;
         let prevPage = this.state.page - 1;
-        let url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=338d03d3c36647f1b5f624992523676f&page=${prevPage}&category=${this.props.category}`;
+        let url;
+        if( this.props.category === "none" ) {
+            url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=338d03d3c36647f1b5f624992523676f&page=${prevPage}`;
+        }
+        else {
+            url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=338d03d3c36647f1b5f624992523676f&page=${prevPage}&category=${this.props.category}`;
+        }
         this.setState({loading: true});
         let data = await fetch(url);
         let parsedData = await data.json();
@@ -38,7 +44,13 @@ export default class News extends Component {
     onNextClick = async () => {
         let currentPage = this.state.page;
         let nextPage = this.state.page + 1;
-        let url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=338d03d3c36647f1b5f624992523676f&page=${nextPage}&category=${this.props.category}`;
+        let url;
+        if( this.props.category === "none" ) {
+            url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=338d03d3c36647f1b5f624992523676f&page=${nextPage}`;
+        }
+        else {
+            url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=338d03d3c36647f1b5f624992523676f&page=${nextPage}&category=${this.props.category}`;
+        }
         this.setState({loading: true});
         let data = await fetch(url);
         let parsedData = await data.json();
@@ -49,7 +61,13 @@ export default class News extends Component {
     }
 
     async componentDidMount() {
-        let url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=338d03d3c36647f1b5f624992523676f&category=${this.props.category}`;
+        let url;
+        if( this.props.category === "none" ) {
+            url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=338d03d3c36647f1b5f624992523676f`;
+        }
+        else {
+            url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=338d03d3c36647f1b5f624992523676f&category=${this.props.category}`;
+        }
         this.setState({loading: true});
         let data = await fetch(url);
         let parsedData = await data.json();

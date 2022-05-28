@@ -16,6 +16,7 @@ export default class App extends Component {
           <NavBar/>
         </div>
         <Routes>
+          <Route exact path="/" element={<News key="Home" category="none"/>}></Route>
           <Route exact path="/Business" element={<News key="business" category="business"/>}></Route> 
           <Route exact path="/Entertainment" element={<News key="entertainment" category="entertainment"/>}></Route> 
           <Route exact path="/Food" element={<News key="general" category="general"/>}></Route> 
